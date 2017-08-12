@@ -1,39 +1,44 @@
 # utility-methods
-====
 A collection of commonly used utility methods.
 
 
-### Strings
+## Strings
 
 #### capitalize(str)
+Capitalize the first character of a string.
 ```js
 const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
 ```
 
 #### abbreviate(str, characterCount)
+Abbreviate a string to a given amount of characters.
 ```js
 const abbreviate = (str, characterCount) => str.slice(0, characterCount);
 ```
 
 #### uncamelize(str, separator = " ")
+Swap out camelization with a given separator.
 ```js
 const uncamelize = (str, separator = " ") => str.replace(/[A-Z]/g, letter => separator + letter.toLowerCase()).replace("/^" + separator + "/", "");
 ```
 
 #### commalizeNumber(num)
+Add commas as thousands separators to number (this will convert your number to a string, of course)
 ```js
 const commalizeNumber = num => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 ```
 
 
-### Numbers
+## Numbers
 
 #### clamp(num, min, max)
+Clamp a number between a max and min.
 ```js
 const clamp = (num, min, max) => Math.max(min, Math.min(num, max));
 ```
 
-#### roundNumber(nnum, decimalPoints = 0)
+#### roundNumber(num, decimalPoints = 0)
+Round a float to an optionally given decimal place.
 ```js
 const roundNumber = (num, decimalPoints = 0) => {
     let multiplier = Math.pow(10, decimalPoints || 0);
@@ -42,6 +47,7 @@ const roundNumber = (num, decimalPoints = 0) => {
 ```
 
 #### getRandomNumber = (min, max, decimalPoints = 0)
+Get a random number between a min and max and at an optionally given decimal point.
 ```js
 const getRandomNumber = (min, max, decimalPoints = 0) => {
     let randomNumber;
@@ -56,14 +62,16 @@ const getRandomNumber = (min, max, decimalPoints = 0) => {
 ```
 
 
-### Arrays
+## Arrays
 
 #### getRandomArrayValue(arr)
+Retrieve a single random value from an array.
 ```js
 const getRandomArrayValue = arr => arr[Math.floor(Math.random() * arr.length)];
 ```
 
 #### shuffleArray(arr)
+Shuffle an array (mutates the original array).
 ```js
 const shuffleArray = arr => {
     let currentIndex = arr.length, temporaryValue, randomIndex;
