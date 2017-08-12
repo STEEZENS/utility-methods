@@ -1,48 +1,28 @@
-# utility-methods
-====
-A collection of commonly used utility methods.
-
-
-### Strings
-
-#### capitalize(str)
-```js
+// capitalize the first character of a string
 const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
-```
 
-#### abbreviate(str, characterCount)
-```js
+// abbreviate a string to a given amount of characters
 const abbreviate = (str, characterCount) => str.slice(0, characterCount);
-```
 
-#### uncamelize(str, separator = " ")
-```js
+// retrieve a single random value from an array
+const getRandomArrayValue = arr => arr[Math.floor(Math.random() * arr.length)];
+
+// swap out camelization with a given separator
 const uncamelize = (str, separator = " ") => str.replace(/[A-Z]/g, letter => separator + letter.toLowerCase()).replace("/^" + separator + "/", "");
-```
 
-#### commalizeNumber(num)
-```js
+// add commas as thousands separator to number (note: this will convert your number to a string)
 const commalizeNumber = num => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-```
 
-
-### Numbers
-
-#### clamp(num, min, max)
-```js
+// clamp a number between a max and min
 const clamp = (num, min, max) => Math.max(min, Math.min(num, max));
-```
 
-#### roundNumber(nnum, decimalPoints = 0)
-```js
+// round a float to an optionally given decimal place
 const roundNumber = (num, decimalPoints = 0) => {
     let multiplier = Math.pow(10, decimalPoints || 0);
     return Math.round(num * multiplier) / multiplier
 };
-```
 
-#### getRandomNumber = (min, max, decimalPoints = 0)
-```js
+// get a random number between a min and max and at an optionally given decimal point
 const getRandomNumber = (min, max, decimalPoints = 0) => {
     let randomNumber;
 	if (decimalPoints) {
@@ -53,18 +33,8 @@ const getRandomNumber = (min, max, decimalPoints = 0) => {
 	}
 	return randomNumber;
 };
-```
 
-
-### Arrays
-
-#### getRandomArrayValue(arr)
-```js
-const getRandomArrayValue = arr => arr[Math.floor(Math.random() * arr.length)];
-```
-
-#### shuffleArray(arr)
-```js
+// shuffle an array (currently mutates the array = no bueno!)
 const shuffleArray = arr => {
     let currentIndex = arr.length, temporaryValue, randomIndex;
     while (0 !== currentIndex) {
@@ -76,4 +46,3 @@ const shuffleArray = arr => {
     }
     return arr;
 };
-```
