@@ -71,7 +71,7 @@ const getRandomArrayValue = arr => arr[Math.floor(Math.random() * arr.length)];
 ```
 
 #### shuffleArray(arr)
-Shuffle an array (mutates the original array).
+Shuffle an array (modifies the original array).
 ```js
 const shuffleArray = arr => {
     let currentIndex = arr.length, temporaryValue, randomIndex;
